@@ -1,7 +1,8 @@
 all:	
 	nasm -fbin src/x86/boot/bootloader.asm -o bin/bootloader.bin
 	nasm -felf src/x86/kernel/kernel.asm -o objres/kernelasm.o
-	kesslang -no-exit -c -bits-32 -o objres/kmain.o src/x86/kernel/kmain.kess
+	# kesslang -no-exit -c -bits-32 -o objres/kmain.o src/x86/kernel/kmain.kess
+	kesslang -no-exit -c -bits-32 -s src/x86/kernel/kmain.kess
 	ld -melf_i386 -Tlink.ld objres/*.o --oformat binary -o bin/kernel.bin
 	cat bin/bootloader.bin bin/kernel.bin > bin/KessOS.bin
 	@ # Prepare the image.

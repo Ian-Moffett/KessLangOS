@@ -1,3 +1,7 @@
-*0xB8000 = "H"
-*0xB8002 = "i"
-*0xB8004 = "!"
+!! '&' means constant.
+?&MSG = "H";
+?&VGA1 = 0xB8000;
+?&VGA2 = 0xB8002;
+
+*?VGA1 = "H";
+*?VGA2 = ?MSG;
